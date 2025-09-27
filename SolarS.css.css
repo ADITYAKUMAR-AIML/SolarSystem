@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    overflow: scroll;
+}
+
+#Box1, #Box2 {
+    overflow: visible;
+    background-color: salmon;
+    border-radius: 15px;
+    position:fixed;
+    width: 150px;
+    height: 180px;
+    z-index: 2;
+    position: fixed;
+    top: 100px;
+    transition: all 1s ease;
+}
+
+#Box1 {
+    left: 300px;
+}
+
+#Box2 {
+    left: 100px;
+}
+
+#Box3 {
+    width: 155px;
+    height: 185px;
+    z-index: 1;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: transparent;
+    border: gold 5px solid;
+    border-radius: 15px;
+    transition: all 1s ease;
+}
+
+@keyframes float {
+    0%   { transform: rotate(25deg); }
+    25%  { transform: rotate(75deg) scale(2.25); }
+    50%  { transform: rotate(150deg); }
+    75%  { transform: scale(1.25); }
+    100% { transform: scale(1.25, 1.25); }
+}
+
+@keyframes float2 {
+    0%   { transform: skew(25deg); }
+    25%  { transform: skew(75deg) scale(2.25); }
+    50%  { transform: skew(150deg); }
+    75%  { transform: scale(1.25);
+    transform: skew(180deg); }
+    100% { transform: scale(1.25, 1.25); }
+}
+
+@keyframes float3 {
+    0%   { transform: rotate(25deg); }
+    25%  { transform: rotate(75deg) scale(2.25); }
+    50%  { transform: rotate(150deg); }
+    65%  { transform: scale(1.25); transform: rotate(250deg); }
+    80% { transform: scale(1.25, 1.25); transform: rotate(300deg); }
+    100% { transform: scale(1.25, 1.25); transform: rotate(360deg); }
+}
+
+#Box1:hover ~ #Box3 {
+    transform: scale(1.25, 1.25);
+    left: 350px;
+    animation: float 1s ease-in-out alternate;
+}
+
+#Box2:hover ~ #Box3 {
+    transform: scale(1.25, 1.25);
+    left: 50px; /* Changed from margin-right to left positioning */
+    animation: float 1s ease-in-out alternate;
+}
+
+#Box1:hover {
+    transform: scale(1.25, 1.25);
+    left: 350px;
+}
+
+#Box2:hover {
+    transform: scale(1.25, 1.25);
+    left: 50px; /* Changed from margin-right to left positioning */
+}
+
+#Box4,#Box5{
+    position: absolute;
+    top: 500px;
+    width: 150px;
+    height: 180px;
+    z-index: 2;
+   
+}
+
+#Box4{
+    left: 105px;
+    background-color:salmon;
+    border-radius: 15px;
+}
+#Box5{
+    left: 390px;
+    background-color:salmon;
+    border-radius: 15px;
+
+}
+#Box4:hover{
+    left: 112.5px;
+    
+}
+#Box5:hover{
+    left: 395px;
+    
+
+}
+#Box6{
+    position: absolute;
+    top: 497.5px;
+    width: 150px;
+    z-index: 1;
+    height: 180px;
+    left: 240px;
+    background-color: transparent;
+    border: 10px gold solid;
+    border-radius: 15px;
+}
+
+#Box4:hover ~ #Box6{
+    transform: scale(1.25, 1.25);
+    left: 105px;
+    animation: float2 1s linear alternate;
+}
+#Box5:hover ~ #Box6{
+    transform: scale(1.25, 1.25);
+    left: 390px;
+    animation: float2 1s linear alternate;
+}
+
+#Box4:hover , #Box5:hover{
+    animation: float3 1s linear alternate;
+    transform: scale(1.25, 1.25);
+    top: 505px;
+}
+
